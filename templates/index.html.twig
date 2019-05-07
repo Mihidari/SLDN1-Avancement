@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/loading-bar.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" />
+{% endblock %}
+
+{% block body %}
+    <div class="se-pre-con"></div>
+    <div id="background">
+        <h1>Simplon #SLDN1 | Avancement</h1>
+        <div
+                class="progress ldBar label-center"
+                style="width:50%;height:50%;"
+                data-stroke="data:ldbar/res,gradient(0,1, #1D183A)"
+                data-stroke-trail="#212332"
+                data-stroke-width="10"
+                data-preset="circle"
+                data-duration="2"
+        ></div>
+        <h1 id="date">1523:15:23</h1>
+    </div>
+    <div id="conteneur">
+        <div data-aos="fade-right" id="front" class="competence">
+            <h2>Front-end</h2>
+            <div class="grid">
+                {% for card in cards %}
+                    {% if card.categorie == 'front' %}
+                        {% include 'card.html.twig'
+                            with{'title' : card.nom,
+                                 'desc1' : card.desc1,
+                                 'desc2' : card.desc2,
+                                 'desc3' : card.desc3,
+                                 'desc4' : card.desc4,
+                                 'etat' : card.etat,
+                                 'id': card.id}
+                        %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div data-aos="fade-left" id="back" class="competence">
+            <h2>Back-end</h2>
+            <div class="grid">
+                {% for card in cards %}
+                    {% if card.categorie == 'back' %}
+                        {% include 'card.html.twig'
+                            with{'title' : card.nom,
+                            'desc1' : card.desc1,
+                            'desc2' : card.desc2,
+                            'desc3' : card.desc3,
+                            'desc4' : card.desc4,
+                            'etat' : card.etat,
+                            'id': card.id}
+                        %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div data-aos="fade-right" id="securite" class="competence">
+            <h2>Securité</h2>
+            <div class="grid">
+                {% for card in cards %}
+                    {% if card.categorie == 'securite' %}
+                        {% include 'card.html.twig'
+                            with{'title' : card.nom,
+                            'desc1' : card.desc1,
+                            'desc2' : card.desc2,
+                            'desc3' : card.desc3,
+                            'desc4' : card.desc4,
+                            'etat' : card.etat,
+                            'id': card.id}
+                        %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div data-aos="fade-left" id=analyse" class="competence">
+            <h2>Analyse</h2>
+            <div class="grid">
+                {% for card in cards %}
+                    {% if card.categorie == 'analyse' %}
+                        {% include 'card.html.twig'
+                            with{'title' : card.nom,
+                            'desc1' : card.desc1,
+                            'desc2' : card.desc2,
+                            'desc3' : card.desc3,
+                            'desc4' : card.desc4,
+                            'etat' : card.etat,
+                            'id': card.id}
+                        %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div data-aos="fade-right" id="agile" class="competence">
+            <h2>Méthode Agile</h2>
+            <div class="grid">
+                {% for card in cards %}
+                    {% if card.categorie == 'agile' %}
+                        {% include 'card.html.twig'
+                            with{'title' : card.nom,
+                            'desc1' : card.desc1,
+                            'desc2' : card.desc2,
+                            'desc3' : card.desc3,
+                            'desc4' : card.desc4,
+                            'etat' : card.etat,
+                            'id': card.id}
+                        %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div data-aos="fade-left" id="anglais" class="competence">
+            <h2>Anglais</h2>
+            <div class="grid">
+                {% for card in cards %}
+                    {% if card.categorie == 'anglais' %}
+                        {% include 'card.html.twig'
+                            with{'title' : card.nom,
+                            'desc1' : card.desc1,
+                            'desc2' : card.desc2,
+                            'desc3' : card.desc3,
+                            'desc4' : card.desc4,
+                            'etat' : card.etat,
+                            'id': card.id}
+                        %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block javascripts %}
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="{{ asset('js/loading-bar.js') }}"></script>
+        <script src="{{ asset('js/ajax.js') }}"></script>
+        <script src="{{ asset('js/decompte.js') }}"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+            $(window).load(function() {
+                $(".se-pre-con").fadeOut("slow");
+            });
+            AOS.init();
+        </script>
+    {% endblock %}

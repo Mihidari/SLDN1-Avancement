@@ -1,0 +1,20 @@
+<a class="upgrade" href="{{ path('upgrade', {'id': id}) }}">
+<div data-aos="fade-up" class="details">
+    <ul>
+        <li>{{ title }}
+            {% if etat == 1 %}
+                <i class="fas fa-trophy full"></i><i class="fas fa-trophy"></i><i class="fas fa-trophy"></i>
+            {% elseif etat == 2 %}
+                <i class="fas fa-trophy full"></i><i class="fas fa-trophy full"></i><i class="fas fa-trophy"></i>
+            {% elseif etat == 3 %}
+                <i class="fas fa-trophy full"></i><i class="fas fa-trophy full"></i><i class="fas fa-trophy full"></i>
+            {% else %}
+                <i class="fas fa-trophy"></i><i class="fas fa-trophy"></i><i class="fas fa-trophy"></i>
+            {% endif %}
+            <p>{{ desc1 }}</p>
+            <p>{{ desc2 }}</p>
+            <p>{{ desc3 }}</p>
+            <p>{{ desc4 }}</p>
+        </li>
+    </ul>
+</div></a>
